@@ -7,7 +7,8 @@ mkdir -p \
 
 # copy config files
 
-echo "dobel" > /config/slave_secret
+
+[[ ! -e "/config/slave_secret" ]] && echo "dobel" > /config/slave_secret
 
 PREV_DIR=$(pwd)
 
