@@ -21,12 +21,6 @@ PREV_DIR=$(pwd)
 
 cd "${PREV_DIR}" || exit
 
-# make symlinks
-[[ ! -e /var/www/localhost/smokeping ]] && ln -s \
-	/usr/share/webapps/smokeping /var/www/localhost/smokeping
-
-[[ ! -e /var/www/localhost/smokeping/cache ]] && ln -s \
-	/var/cache/smokeping /var/www/localhost/smokeping/cache
 
 
 
@@ -35,6 +29,5 @@ chmod 400 /config/slave_secret
 chown -R abc:abc \
 	/config \
 	/data \
-	/usr/share/webapps/smokeping \
-	/var/cache/smokeping \
-	/var/www/localhost/smokeping
+	/var/cache/smokeping 
+
