@@ -1,4 +1,4 @@
 #!/usr/bin/with-contenv bash
 
-exec s6-setuidgid abc /usr/bin/smokeping --master-url=http://106.75.139.45:7777/smokeping/smokeping.cgi --slave-name=slave-zituo1 --shared-secret=/config/slave_secret --cache-dir=/data/cache/ --nodaemon
+exec s6-setuidgid abc /usr/bin/smokeping --master-url=http://106.75.139.45:7777/smokeping/smokeping.cgi --slave-name=slave-zituo --shared-secret=/config/slave_secret --cache-dir=/data/cache/ --nodaemon
 
