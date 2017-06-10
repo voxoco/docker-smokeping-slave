@@ -4,9 +4,12 @@
 mkdir -p \
 	/config/site-confs \
 	/run/apache2 \
-	/var/cache/smokeping
+	/var/cache/smokeping \
+	/data/cache
 
 # copy config files
+
+echo "dobel" > /config/slave_secret
 
 PREV_DIR=$(pwd)
 
@@ -30,6 +33,7 @@ cd "${PREV_DIR}" || exit
 	cp /defaults/smokeping.conf /config/site-confs/smokeping.conf
 
 # permissions
+chmod 400 /config/slave_secret
 chown -R abc:abc \
 	/config \
 	/data \
