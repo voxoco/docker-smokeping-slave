@@ -9,8 +9,6 @@ LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DA
 # install packages
 RUN \
  apk add --no-cache \
-	apache2 \
-	apache2-utils \
 	curl \
 	smokeping \
 	ssmtp \
@@ -27,5 +25,4 @@ RUN \
 COPY root/ /
 
 # ports and volumes
-EXPOSE 80
 VOLUME /config /data
