@@ -22,7 +22,7 @@ RUN \
  sed -i 's#src="/cropper/#/src="cropper/#' /etc/smokeping/basepage.html
 
 
-ENV TZ=Asia/Shanghai
+ENV TZ=America/Chicago
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 # add local files
