@@ -1,4 +1,4 @@
 #!/usr/bin/with-contenv bash
 
-exec s6-setuidgid abc /usr/bin/smokeping --master-url=http://smokeping.voxo.co/smokeping/smokeping.cgi --slave-name=atl-rtc2 --shared-secret=/config/slave_secret --cache-dir=/data/cache/ --nodaemon
+exec s6-setuidgid abc /usr/bin/smokeping --master-url=https://smokeping.voxo.co/smokeping/smokeping.cgi --shared-secret=/config/slave_secret --cache-dir=/data/cache/ --nodaemon
 
