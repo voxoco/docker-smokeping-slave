@@ -9,6 +9,8 @@ LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DA
 # install packages
 RUN \
  apk add --no-cache \
+    perl \
+    perl-lwp-protocol-https \
 	curl \
 	smokeping \
 	ssmtp \
