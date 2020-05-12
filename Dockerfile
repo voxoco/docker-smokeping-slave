@@ -10,7 +10,6 @@ LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DA
 RUN \
  apk add --no-cache \
 	curl \
-	liblwp-protocol-https-perl \
 	smokeping \
 	ssmtp \
 	sudo \
