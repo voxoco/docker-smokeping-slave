@@ -27,6 +27,8 @@ RUN \
 ENV TZ=America/Chicago
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
+RUN ln -s /usr/sbin/fping /usr/bin/fping
+
 # add local files
 COPY root/ /
 
