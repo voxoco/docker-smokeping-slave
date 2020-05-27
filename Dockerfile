@@ -7,6 +7,9 @@ ARG VERSION
 ARG SMOKEPING_VERSION
 LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 
+# copy tcpping script
+COPY tcpping /defaults/
+
 # install packages
 RUN \
  apk add --no-cache \
