@@ -1,9 +1,10 @@
-FROM lsiobase/alpine:3.6
+FROM lsiobase/alpine:3.11
 MAINTAINER LinuxServer.io <ironicbadger@linuxserver.io>, sparklyballs
 
 # set version label
 ARG BUILD_DATE
 ARG VERSION
+ARG SMOKEPING_VERSION
 LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}"
 
 # install packages
@@ -11,17 +12,22 @@ RUN \
  apk add --no-cache \
     perl \
     perl-lwp-protocol-https \
-	curl \
-	smokeping \
-	ssmtp \
-	sudo \
-	ttf-dejavu && \
+    curl \
+    smokeping \
+    ssmtp \
+    sudo \
+    tcptraceroute \
+    ttf-dejavu && \
+echo "**** give setuid access to traceroute & tcptraceroute ****" && \
+chmod a+s /usr/bin/traceroute && \
+chmod a+s /usr/bin/tcptraceroute && \
+echo "**** fix path to cropper.js ****" && \
+sed -i 's#src="/cropper/#/src="cropper/#' /etc/smokeping/basepage.html && \
+echo "**** install tcping script ****" && \
+install -m755 -D /defaults/tcpping /usr/bin/ && \
 
 # give abc sudo access to traceroute
  echo "abc ALL=(ALL) NOPASSWD: /usr/bin/traceroute" >> /etc/sudoers.d/traceroute && \
-
-# fix path to cropper.js
- sed -i 's#src="/cropper/#/src="cropper/#' /etc/smokeping/basepage.html
 
 
 ENV TZ=America/Chicago
